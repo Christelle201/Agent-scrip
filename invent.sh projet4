@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#This script will check the new install server.
+#April 2021   # by kryschristelle72@gmail.com
+
+## CPU check
+CPU_N= `nproc`
+if  [ ${CPU_N} -lt 2 ]
+then
+echo "CPU check FAILED"
+fi
+## Memory check
+MEM= `free -m |grep Mem | awk '{print$2}'`
+
+if [ ${MEM} lt 2000 ]
+then
+echo "Memory check FAILED"
+else
+echo "Memory check PASS"
+fi
+## Check files if exist
+
+if [ -f /etc/group ]
+then
+
+ echo "File /etc/group exit"
+ fi
+ then
+ echo "File /etc/passwd exist"
+ else
+ echo "File /etc/passwd missing"
+ fi
+ if [ -f /etc/httpd ]
+ then
+ echo "File /etc/httpd missing"
+ fi
+ if [ -f /etc/kubernetes ]
+ then
+ echo "File /etc/kubertes exist"
+ else
+ echo "File /etc/kubernetes missing"
+fi
+
